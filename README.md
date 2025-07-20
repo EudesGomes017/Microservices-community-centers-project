@@ -2,6 +2,8 @@
 
 Este projeto consiste em uma arquitetura de microsserviços baseada em Spring Boot, que simula uma plataforma de monitoramento de centros comunitários, utilizando Kafka para comunicação assíncrona entre serviços e MongoDB para persistência de dados.
 
+![Demonstração BackEnd](centerservice.gif)
+
 ## 📦 Serviços
 
 ### 1. `center-service`
