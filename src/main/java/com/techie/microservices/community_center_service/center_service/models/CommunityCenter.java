@@ -22,8 +22,10 @@ public class CommunityCenter {
     private String name;
     private String address;
     private String location;
-    private int capacity;
-    private int occupancy;
+    private Double latitude;
+    private Double longitude;
+    private Integer maximumCapacity;
+    private Integer CurrentOccupation; //Ocupação atual
 
     // Recursos do centro
     private Map<String, Integer> resources; // ex: {"médico": 2, "cestaBasica": 10}
