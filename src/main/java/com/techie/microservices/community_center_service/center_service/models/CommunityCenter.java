@@ -1,5 +1,6 @@
 package com.techie.microservices.community_center_service.center_service.models;
 
+import com.techie.microservices.community_center_service.center_service.models.enums.ResourceTypes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,7 +8,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.EnumMap;
 import java.util.Map;
+
 
 @Document(collection = "centers")
 @Data
@@ -28,5 +31,5 @@ public class CommunityCenter {
     private Integer CurrentOccupation; //Ocupação atual
 
     // Recursos do centro
-    private Map<String, Integer> resources; // ex: {"médico": 2, "cestaBasica": 10}
+    private Map<ResourceTypes, Integer> recurces = new EnumMap<>(ResourceTypes.class);
 }

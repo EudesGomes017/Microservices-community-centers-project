@@ -3,8 +3,11 @@ package com.techie.microservices.community_center_service.center_service.DTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.techie.microservices.community_center_service.center_service.models.enums.ResourceTypes;
-import lombok.*;
-import org.springframework.data.annotation.Id;
+import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 
 import java.util.Map;
 
@@ -13,18 +16,16 @@ import java.util.Map;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPOJOBuilder(withPrefix = "")
-@NoArgsConstructor
-@AllArgsConstructor
-public class CommunityCenterRequestDTO {
+public class CommunityCenterResponseDTO {
 
-    @Id
     private String id;
     private String name;
     private String address;
-    private String location;
     private Double latitude;
     private Double longitude;
     private Integer maximumCapacity;
-    private Integer CurrentOccupation; //Ocupação atual
-    private Map<ResourceTypes, Integer> resources;
+    private Integer CurrentOccupation;
+
+    @NotNull
+    private Map<ResourceTypes, Integer> recurces;
 }
