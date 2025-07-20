@@ -2,13 +2,11 @@ package com.techie.microservices.community_center_service.center_service.control
 
 import com.techie.microservices.community_center_service.center_service.DTO.CommunityCenterRequestDTO;
 import com.techie.microservices.community_center_service.center_service.DTO.CommunityCenterResponseDTO;
+import com.techie.microservices.community_center_service.center_service.models.CommunityCenter;
 import com.techie.microservices.community_center_service.center_service.services.CommunityCenterService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/centers")
@@ -21,6 +19,13 @@ public class CommunityCenterController {
     @PostMapping(value = "/create", produces = "application/json")
     public CommunityCenterResponseDTO create(@RequestBody CommunityCenterRequestDTO request) {
         return service.createCenter(request);
+    }
+
+    @Operation(summary = "Update the occupancy of a community center")
+    @PutMapping("/{id}/occupancy")
+    public CommunityCenter updateOccupancy(@PathVariable String id,
+                                           @RequestParam int occupancy) {
+        return service.updateOccupancy(id, occupancy);
     }
 }
 
