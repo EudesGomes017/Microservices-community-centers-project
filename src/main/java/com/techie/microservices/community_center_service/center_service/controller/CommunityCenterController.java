@@ -21,8 +21,8 @@ public class CommunityCenterController {
         return service.createCenter(request);
     }
 
-    @Operation(summary = "Update the occupancy of a community center")
     @PutMapping("/{id}/occupancy")
+    @Operation(summary = "Update the occupancy of a community center")
     public CommunityCenter updateOccupancy(@PathVariable String id,
                                            @RequestParam int occupancy) {
         return service.updateOccupancy(id, occupancy);
