@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface CommunityCenterRepository extends MongoRepository<CommunityCenter, String> {
-    List<CommunityCenter> findByOccupancyGreaterThanEqual(int threshold);
+    List<CommunityCenter> findByMaximumCapacityGreaterThanEqual(int threshold);
 
 
     }
